@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Login Form</title>
+</head>
+<body>
+    
+    <div class="row">
+
+        <div class="column col-1">
+            
+            <div class="login-header">
+                <h3 class="title">Login</h3>
+                <p>Welcome to our Application Website</p>
+            </div>
+
+            <form class="login-form" action="#" id="loginForm">
+
+                <div class="login-content">
+
+                    <div class="login-items">
+                        <lable for="usname" class="inputUser">Username or Email</lable>
+                        <input type="text" id="usname" placeholder="" required>
+                    </div>
+    
+                    <div class="login-items">
+                        <lable for="passw" class="inputUser">Password</lable>
+                        <input type="password" id="passw" placeholder="" required>
+                    </div>
+
+                    
+                    <button type="submit" class="singin" id="singIn">Sign In</button>
+                    
+
+                    <div class="login-items">
+                        <div class="check">
+                            <input type="checkbox" id="cBox" checked>
+                            <lable for="cBox">Remember Me</lable>
+                        </div>
+                    </div>
+
+                    <div class="login-items">
+                        <div class="footer">
+
+                                <button type="submit" class="back">Back</button>
+
+                            <div class="forgot-passw">
+                                <a href="#" style="text-decoration: none; opacity: .7; color:#000;">
+                                    <p>Forgot Password?</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="login-items">
+                            <a href="#">
+                                <button class="facebook">
+                                    <i class="fa-brands fa-facebook" style="margin-right:10px; color: #3b5998"></i><span>Facebook</span>
+                                 </button>
+                            </a>
+        
+                            <a href="#">
+                                <button class="google">
+                                    <span style="color: #4285F4;">G</span><span style="color:  #DB4437">o</span><span style="color: #F4B400;">o</span><span style="color: #4285F4;">g</span><span style="color: #0F9D58;">l</span><span style="color:  #DB4437">e</span>
+                                </button>   
+                            </a>            
+                    </div>
+                </div>   
+            </form>
+        </div>
+
+        <div class="column col-2">
+           <div class="image">
+                <img src="./images/7024747_3475737.jpg" class="photo">
+           </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    var users = [
+        {
+            userName: 'koko',
+            passWord: 'koko123'
+        },
+        {
+            userName: 'steve',
+            passWord: 'steve123'
+        },
+        {
+            userName: 'katy',
+            passWord: 'katy123'
+        },
+        {
+            userName: 'wally',
+            passWord: 'wally123'
+        },
+        {
+            userName: 'jame',
+            passWord: 'jame123'
+        }
+    ]
+
+    let loginform = document.getElementById('loignForm');
+    let singin  = document.getElementById('singIn');
+
+    singin.addEventListener('click', function(a){
+        a.preventDefault();
+        const username = document.getElementById('usname').value
+        const password = document.getElementById('passw').value
+
+        for( i = 0 ; i < users.length; i++){
+            if( username == users[i].userName && password == users[i].passWord ){
+                window.location.href ='http://127.0.0.1:5500/logout.html'
+                return false;
+            }       
+        }
+        alert('Login failed // incorrect/username&password')
+    })
+
+</script>
+
+</html>
